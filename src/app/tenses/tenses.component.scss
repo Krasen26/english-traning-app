@@ -1,0 +1,48 @@
+.select-menu{
+    display: flex;
+    gap: 1rem;
+}
+.selected-country-container{
+    position: relative;
+}
+.selected-country{
+    background-color: white;
+    padding: 0.5rem 0.8rem;
+    border-radius: 5px;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8rem;
+    cursor: pointer;
+    min-width: 19rem;
+}
+.country-menu{
+    background: white;
+    margin-top: 1rem;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+}
+.country-item {
+    padding: 10px;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+.country-item:hover {
+    background-color: #f0f0f0;
+}
+.country-info{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.countryIcon{
+    width: 33px;
+    background-color: transparent;
+}

@@ -1,0 +1,73 @@
+<div class="container mt-4">
+<div class="row align-items-center">
+  <div class="col-md-4">
+    <label class="form-label">Search</label>
+    <input
+      type="text"
+      class="form-control "
+      placeholder="Search"
+      [(ngModel)]="model.search"
+    />
+  </div>
+  <div class="col-md-4">
+    <label for="pCategory" class="form-label">Select Tense</label>
+    <select
+      class="form-control"
+      id="pCategory"
+      name="pCategory"
+      (change)="OnGetSelectedTensesItems($event)"
+    >
+      <option
+        *ngFor="let item of this.model.tensesDropDown.tensesItems"
+        [ngValue]="item.id"
+      >
+        {{ item.name }}
+      </option>
+    </select>
+  </div>
+  <div class="col-md-4">
+    <label for="pSentenceType" class="form-label">Select Sentence Type</label>
+    <select
+      class="form-control"
+      id="pSentenceType"
+      name="pSentenceType"
+      (change)="OnGetSelectedSentenceTypeItems($event)"
+    >
+      <option
+        *ngFor="let item of this.model.sentenceTypeDropDown.sentenceTypes"
+        [ngValue]="item.id"
+      >
+        {{ item.name }}
+      </option>
+    </select>
+  </div>
+</div>
+  
+  <table class="table mt-4">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Bulgarian Sentence</th>
+        <th scope="col">English Sentence</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let item of model.englishTenesesItems | filterName : model.search
+        "
+      >
+        <th scope="row">{{ item.id }}</th>
+        <td>{{ item.bulgarianSentence }}</td>
+        <td><span *ngIf="item.isTextShown">{{ item.englishSentence }}</span></td>
+        <td>
+          <div class="d-flex gap-3">
+            <button class="btn btn-success">Edit</button>
+            <button class="btn btn-warning" (click)="onToggleText(item)">{{item.isTextShown ? 'Hide' : 'View'}}</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -5,7 +5,7 @@ import { EnglishTenesesModel } from '../shared/englishteneses/englishtenses.mode
 @Injectable({
   providedIn: 'root'
 })
-export class PresentSimpleService {
+export class TensesComponentService {
 
   constructor(private http: HttpClient) { }
 
