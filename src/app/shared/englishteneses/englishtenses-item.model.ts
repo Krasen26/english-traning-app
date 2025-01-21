@@ -4,4 +4,5 @@ export class EnglishTenesesItem {
   public bulgarianSentence: string = "";
   public englishSentence: string = "";
   public tensesType: number = 0;
+  public isEditMode: boolean = false;
 }

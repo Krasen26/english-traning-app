@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { EnglishTenesesModel } from '../shared/englishteneses/englishtenses.model';
 import { TensesComponentService } from './tenses.service';
 import { EnglishTenesesItem } from '../shared/englishteneses/englishtenses-item.model';
+import { EnglishTenesesResult } from './english.teneses-result';
 
 @Component({
   selector: 'app-tenses',
@@ -65,4 +66,65 @@ export class TensesComponent {
 
     console.log('Selected item:', selectedItem);
   }
+
+  onItemEdit(item: EnglishTenesesItem) {
+
+    for (let englishTeneses of this.model.englishTenesesItems) {
+      englishTeneses.isEditMode = false;
+    }
+
+    item.isEditMode = true;
+  }
+
+  onItemBack(item: EnglishTenesesItem) {
+
+    item.isEditMode = false;
+
+  }
+
+  onItemSave(item: EnglishTenesesItem) {
+
+    this.tensesService.onEdit(item).subscribe((englishTenesesResult: EnglishTenesesResult) => {
+
+      item.isEditMode = false;
+
+      console.log(englishTenesesResult.successMessage);
+    });
+
+  }
+  onItemDelete(item: EnglishTenesesItem) {
+
+    const id = item.Id;
+
+    this.tensesService.onDelete(item).subscribe((englishTenesesResult: EnglishTenesesResult) => {
+
+      this.onGetEnglishTenesesModel();
+      //console.log(englishTenesesResult.successMessage);
+      //console.log(this.model.englishTenesesItems.length);
+
+      //let data: EnglishTenesesItem[] = [];
+
+
+      //for (let english of this.model.englishTenesesItems) {
+      //  console.log("TEST 1 " + english);
+      //  //if (english.Id == 5) {
+
+      //  //  console.log("TEST " + english);
+      //  //}
+
+      //  if (english.Id != item.Id) {
+
+      //    data.push(english);
+      //  }
+      //}
+
+      //console.log(data.length);
+
+
+      //this.model.englishTenesesItems = data;
+      
+    });
+
+  }
+  
 }

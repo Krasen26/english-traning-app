@@ -4,6 +4,7 @@ import { DropDownItem } from "../dropdown-tenses/dropdown-item.model";
 import { SentenceTypeDropDown } from "../dropdown-tenses/sentence-type-dropdown.model";
 
 export class EnglishTenesesModel {
+  [x: string]: any;
   public search: string;
   public englishTenesesItems: EnglishTenesesItem[] = [];
   public tensesDropDown: TensesDropDown = new TensesDropDown();
