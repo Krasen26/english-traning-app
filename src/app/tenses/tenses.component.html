@@ -46,21 +46,19 @@
   <table class="table mt-4">
     <thead class="table-dark">
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Bulgarian Sentence</th>
-        <th scope="col">English Sentence</th>
-        <th scope="col">Actions</th>
+        <th scope="col" class="col-1" style="max-width: 2rem">#</th>
+        <th scope="col" class="col-5">Bulgarian Sentence</th>
+        <th scope="col" class="col-5">English Sentence</th>
+        <th scope="col" class="col-2">Actions</th>
       </tr>
     </thead>
     <tbody>
       <tr
-        *ngFor="
-          let item of model.englishTenesesItems | filterName : model.search
-        "
-      >
+        *ngFor="let item of model.englishTenesesItems | filterName : model.search" >
         <th scope="row">{{ item.id }}</th>
         <td>{{ item.bulgarianSentence }}</td>
-        <td><span *ngIf="item.isTextShown">{{ item.englishSentence }}</span></td>
+        <td>
+        <span *ngIf="item.isTextShown">{{ item.englishSentence }}</span></td>
         <td>
           <div class="d-flex gap-3">
             <button class="btn btn-success">Edit</button>
