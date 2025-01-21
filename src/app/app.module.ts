@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { FilterNamePipe } from './pipes/filter-name.pipe';
 import { TensesComponent } from './tenses/tenses.component';
 import { UploadComponent } from './upload/upload.component';
+import { FilterTensePipe } from './pipes/filter-tense.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { UploadComponent } from './upload/upload.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    FilterNamePipe
+    FilterNamePipe,
+    FilterTensePipe,
   ],
   providers: [],
   bootstrap: [AppComponent]

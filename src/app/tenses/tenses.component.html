@@ -54,7 +54,7 @@
     </thead>
     <tbody>
       <tr
-        *ngFor="let item of model.englishTenesesItems | filterName : model.search" >
+        *ngFor="let item of model.englishTenesesItems | filterTense : model.search : sentenceType : tensesType" >
         <th scope="row">{{ item.id }}</th>
         <td>{{ item.bulgarianSentence }}</td>
         <td>
